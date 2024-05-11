@@ -12,7 +12,7 @@
             <!-- Các biểu tượng chia sẻ mạng xã hội -->
             <ul>
                 <li><a href="https://www.facebook.com/profile.php?id=100041641999879"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com/khainguyen1505"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://twitter.com/Minhnhut"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="https://mail.google.com/mail"><i class="fa fa-google-plus"></i></a></li>
                 <li><a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a></li>
             </ul>

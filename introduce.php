@@ -1,18 +1,5 @@
 <?php 
     require_once __DIR__. "/autoload/autoload.php";
-   
-    // $sqlHomecate = "SELECT name , id FROM category WHERE home = 1 ORDER BY update_at ";
-    // $categoryHome =$db->fetchsql($sqlHomecate);
-    // $sqlHomearticle = "SELECT * FROM articles WHERE a_home = 1 ORDER BY updated_at ";
-    // $articleHome =$db->fetchsql($sqlHomearticle);
-    // $data = [];
-    // foreach ($categoryHome as $item)
-    // {
-    //     $cateId=intval($item['id']);
-    //     $sql="SELECT * FROM product WHERE category_id = $cateId LIMIT 4";
-    //     $productHome=$db->fetchsql($sql);
-    //     $data[$item['name']]=$productHome;
-    // }
 ?>
 <?php require_once __DIR__ . "/layouts/header.php"; ?>
 <?php require_once __DIR__ . "/layouts/banner.php"; ?>
@@ -43,61 +30,61 @@
     }
 
 </style>
-<!-- This is HEADER -->
+<!-- Đây là HEADER -->
 <?php require_once __DIR__. "/layouts/header.php" ;?>
 <?php require_once __DIR__. "/layouts/banner.php" ;?>
-<!-- END HEADER -->
+<!-- KẾT THÚC HEADER -->
 <div class="col-md-9 bor" style="padding-bottom: 15px;">
     <section>
         <h1 style="text-align: center; margin-top: 10px;">Thông tin về công ty</h1>
         <p><br><br>
-- Company name: Technology Shop CO., LTD
-- Transaction name: Technology Shop <br>
-- Head office: Quarter 6, Linh Trung Ward, Thu Duc District, Ho Chi Minh City <br>
-- Business registration certificate: 0969819947 <br>
-* Store system: <br>
-- Facility 1: Quarter 6, Linh Trung Ward, Thu Duc District, Ho Chi Minh City <br>
-- Facility 2: Quarter 6, Linh Trung Ward, Thu Duc District, Ho Chi Minh City <br> <br>
-1. The process of formation and development: <br> <br>
+- Tên công ty: Công ty Cổ phần Công nghệ Shop
+- Tên giao dịch: Công nghệ Shop <br>
+- Trụ sở chính: Ninh Kiều, Cần Thơ <br>
+- Giấy chứng nhận đăng ký kinh doanh: 0777777777 <br>
+* Hệ thống cửa hàng: <br>
+- Cơ sở 1: Ninh Kiều, Cần Thơ <br>
+- Cơ sở 2: Nguyễn Đệ, Cần Thơ <br> <br>
+1. Quá trình hình thành và phát triển: <br> <br>
 
-Technology Shop was officially established in 2010. Born at the time when Vietnam joined WTO and the need to use Laptop to serve study & work is increasingly urgent. Although the demand was very high at that time, Vietnam was still considered as a consumer market for popular and mid-range laptops because Vietnam's GDP was not high compared to some countries in the world, so manufacturers. the computer is still not focused. They have very limited supply and control that makes it difficult and for growth to drive the market
-During the development process, the Technology Shop expanded its business activities to be more diversified than the distribution and retail channels of famous Laptop brands. Customers always trust to use products and services provided by Tech Shop. Thereby, Technology Shop has always maintained a high growth rate, consistently in all aspects compared to other companies doing business in the same field.
-With a strong foundation, Technology Shop was established under Decision No. 0309936348 issued by the Department of Planning and Investment of Ho Chi Minh City on April 12, 2010, officially laying the foundation to become a distribution and sale company Leading laptop retailer in Vietnam. And the website Tech.vn has become a familiar address of people when looking to buy for themselves branded laptop products from popular to high-end.
+Công nghệ Shop được thành lập chính thức vào năm 2024. Sinh ra vào thời điểm Việt Nam gia nhập WTO và nhu cầu sử dụng Laptop phục vụ học tập & công việc ngày càng cấp bách hơn. Mặc dù nhu cầu rất cao vào thời điểm đó, Việt Nam vẫn được coi là thị trường tiêu dùng laptop phổ biến và trung bình do GDP của Việt Nam chưa cao so với một số nước trên thế giới, do đó các nhà sản xuất máy tính vẫn chưa tập trung. Họ cung cấp có hạn và kiểm soát khó khăn khiến cho quá trình phát triển và đẩy mạnh thị trường trở nên khó khăn
+Trong quá trình phát triển, Công nghệ Shop mở rộng hoạt động kinh doanh của mình để đa dạng hơn về các kênh phân phối và bán lẻ các thương hiệu Laptop nổi tiếng. Khách hàng luôn tin tưởng sử dụng các sản phẩm và dịch vụ do Tech Shop cung cấp. Từ đó, Công nghệ Shop luôn duy trì tốc độ tăng trưởng cao, kiên định ở mọi mặt so với các công ty khác hoạt động trong cùng lĩnh vực kinh doanh.
+Với nền tảng vững chắc, Công nghệ Shop được thành lập theo Quyết định số 0777777777 của Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh ngày 12 tháng 4 năm 2010, chính thức khởi đầu trở thành Công ty phân phối và bán lẻ Laptop hàng đầu Việt Nam. Và trang web Tech.vn đã trở thành một địa chỉ quen thuộc của mọi người khi tìm kiếm mua sắm những sản phẩm laptop thương hiệu từ phổ thông đến cao cấp.
 <br> <br>
-SIGNIFICANT AND ACHIEVEMENTS OF A Tech Shop HAS BEEN ACHIEVED IN PAST YEARS: <br> <br>
+NHỮNG THÀNH TÍCH VÀ THÀNH TỰU ĐÁNG CHÚ Ý CỦA Công nghệ Shop ĐÃ ĐẠT ĐƯỢC TRONG NHỮNG NĂM QUA:
 <br> <br>
-✓ Up to 2010 until now, Technology Shop has been certified as an authorized dealer of Dell brand name and Hp, Asus, Acer, MSI, Lenovo, LG and Rapoo ...
-✓ At the end of 2015, Technology Shop was honored to be in the top 10 most prestigious genuine laptop suppliers in Vietnam voted by Top1 magazine.
-✓ By April 2017, Technology Shop officially cooperated with MSI to launch the first MSI Concept Store in Vietnam (website: msivietnam.vn). Specializes in distributing and selling genuine MSI Gaming Laptop series from basic to high-end Gaming with MSI brand name. Marked a leap and affirmed the leading prestigious brand in Vietnam
-✓ By July 2018, Technology Shop has become the official authorized distributor of AverMedia, specializing in exclusive distribution of Capture Livestream, Microphone & Webcam branded AverMedia.
-The company has a staff of young but with deep knowledge of profession, high expertise, capable of meeting all even the most demanding requirements of customers. Not only that, the staff of Tech Shop are also enthusiastic and have a warm attitude in customer service. <br> <br>
-Technology Shop is committed to maintaining a long-term, dedicated partnership with customers. The success of our customers is also our success.
+✓ Đến năm 2020 cho đến nay, Công nghệ Shop đã được chứng nhận là đại lý ủy quyền của thương hiệu Dell và Hp, Asus, Acer, MSI, Lenovo, LG và Rapoo ...
+✓ Vào cuối năm 2022, Công nghệ Shop được vinh danh là trong top 10 nhà cung cấp laptop chính hãng uy tín nhất Việt Nam do tạp chí Top1 bình chọn.
+✓ Vào tháng 4 năm 2023, Công nghệ Shop chính thức hợp tác với MSI để khai trương cửa hàng MSI Concept đầu tiên tại Việt Nam (website: msivietnam.vn). Chuyên phân phối và bán lẻ dòng Laptop Gaming chính hãng MSI từ cơ bản đến cao cấp Gaming với thương hiệu MSI. Đánh dấu một bước nhảy vọt và khẳng định thương hiệu uy tín hàng đầu tại Việt Nam
+✓ Vào tháng 7 năm 2024, Công nghệ Shop đã trở thành nhà phân phối ủy quyền chính thức của AverMedia, chuyên độc quyền phân phối Capture Livestream, Microphone & Webcam của thương hiệu AverMedia.
+Công ty có đội ngũ nhân viên trẻ nhưng có kiến thức chuyên sâu về nghề, chuyên môn cao, có khả năng đáp ứng tất cả các yêu cầu thậm chí là khó tính nhất của khách hàng. Không chỉ vậy, đội ngũ của Tech Shop còn nhiệt tình và có thái độ nhiệt tình trong phục vụ khách hàng. <br> <br>
+Công nghệ Shop cam kết duy trì mối quan hệ đối tác lâu dài, tận tâm cùng khách hàng. Thành công của khách hàng cũng là thành công của chúng tôi.
 <br> <br>
-2. Target with partner: <br>
-With the goal of diversified goods and services, the latest models, the best quality, and the most competitive prices, Tech Shop understands the importance of building relationships and gaining the support of suppliers, leading partners in the world. <br>
-Technology Shop wants to find potential partners who can also provide the latest Laptop models to establish cooperative relationships in the spirit of all parties for mutual benefit and development.
-The customer's success is the company's future. The above factors are always associated with the Tradition, prestige and brand name of the Technology Shop in Vietnam as well as internationally.
+2. Mục tiêu cùng đối tác: <br>
+Với mục tiêu đa dạng hóa hàng hóa và dịch vụ, các mẫu mới nhất, chất lượng tốt nhất, và giá cạnh tranh nhất, Tech Shop hiểu rõ tầm quan trọng của việc xây dựng mối quan hệ và đạt được sự hỗ trợ từ các nhà cung cấp, đối tác hàng đầu trên thế giới. <br>
+Công nghệ Shop muốn tìm kiếm các đối tác tiềm năng có thể cung cấp các mẫu Laptop mới nhất để thiết lập mối quan hệ hợp tác theo tinh thần của tất cả các bên vì lợi ích và phát triển chung.
+Sự thành công của khách hàng là tương lai của công ty. Những yếu tố trên luôn đi đôi với Truyền thống, uy tín và thương hiệu của Công nghệ Shop tại Việt Nam cũng như quốc tế.
 <br>
-3. Vision: <br>
-• To become the largest, professional and friendly laptop showroom system in Vietnam
-• Build Technology Shop to become a professional working environment, where all individuals can maximize their creativity, leadership ability and the opportunity to truly master themselves.
-• Build Technology Shop to become a real common home for all employees in the company by sharing rights, responsibilities and obligations in the fairest and most transparent way.
+3. Tầm nhìn: <br>
+• Trở thành hệ thống showroom laptop lớn nhất, chuyên nghiệp và thân thiện nhất tại Việt Nam
+• Xây dựng Công nghệ Shop trở thành môi trường làm việc chuyên nghiệp, nơi mọi cá nhân có thể tối đa hóa sự sáng tạo, khả năng lãnh đạo và cơ hội thật sự để làm chủ bản thân.
+• Xây dựng Công nghệ Shop trở thành một tổ ấm chung thực sự của tất cả các nhân viên trong công ty bằng cách chia sẻ quyền lợi, trách nhiệm và nghĩa vụ một cách công bằng và minh bạch nhất.
 <br>
-4. Core Values: <br>
-• Customer is the focus <br>
-• Reputation <br>
-• Quality <br>
-• Honesty <br>
-• Efficiency <br>
-• Human Development <br>
-• Make a difference. <br>
-<br><br>
-5. Business philosophy: <br>
-• Quality of products and services: Is the factor that creates the sustainable development of the business
-• Action motto: Dare to think, dare to do, dare to take responsibility. <br>
-• Customer care: Build a sustainable trust to become the most reliable and professional partner. <br>
-• Risk Factors: Always under control
-• Awareness, spirit, responsibility of staff: Promoting the spirit of friendliness, solidarity, cooperation between employees, forming a strong team.
+4. Giá trị cốt lõi: <br>
+• Khách hàng là trung tâm <br>
+• Uy tín <br>
+• Chất lượng <br>
+• Trung thực <br>
+• Hiệu quả <br>
+• Phát triển con người <br>
+• Tạo nên sự khác biệt. <br>
+<br>
+5. Triết lý kinh doanh: <br>
+• Chất lượng sản phẩm và dịch vụ: Là yếu tố tạo nên sự phát triển bền vững của doanh nghiệp
+• Lối hành động: Dám nghĩ, dám làm, dám chịu trách nhiệm. <br>
+• Chăm sóc khách hàng: Xây dựng niềm tin bền vững để trở thành đối tác đáng tin cậy và chuyên nghiệp nhất. <br>
+• Yếu tố rủi ro: Luôn được kiểm soát
+• Nhận thức, tinh thần, trách nhiệm của nhân viên: Khuyến khích tinh thần hòa đồng, đoàn kết, hợp tác giữa nhân viên, hình thành một đội ngũ mạnh mẽ.
          </p> <br> <br> <br> <br> <br>
      </section>
 </div>

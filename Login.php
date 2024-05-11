@@ -6,27 +6,23 @@ $data = [
     "email" => postInput("email"),
     "password" => postInput("password"),
 ];
-
 // Mảng lưu trữ thông báo lỗi
 $error = [];
-
 // Xử lý khi form được gửi đi (POST method)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Kiểm tra nếu email trống
     if (postInput('email') == '') {
         $error['email'] = "Please enter email";
     }
-
     // Kiểm tra nếu password trống
     if (postInput('password') == '') {
         $error['password'] = "Please enter password";
     }
-
     // Nếu không có lỗi
     if (empty($error)) {
         // Kiểm tra thông tin đăng nhập trong database
         $is_check = $db->fetchOne("users", " email = '" . $data['email'] . "' AND password='" . md5($data['password']) . "'");
-        
+   
         // Nếu thông tin đăng nhập hợp lệ
         if ($is_check != NULL) {
             // Lưu tên người dùng và ID vào session
@@ -39,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 <!-- This is HEADER -->
 <?php require_once __DIR__ . "/layouts/header.php"; ?>
 <?php require_once __DIR__ . "/layouts/banner.php"; ?>
@@ -91,10 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- Link quên mật khẩu -->
             <a href="forgotpass.php" class="col-md-2 col-md-offset-5 " style="margin-top:10px;" id="forgot_pswd">Quên mật khẩu ?</a>
         </form>
-        <!-- ----------MAIN-------------- -->
     </section>
 </div>
-
 <!-- This is Footer -->
 <?php require_once __DIR__ . "/layouts/footer.php"; ?>
 <!-- END Footer -->

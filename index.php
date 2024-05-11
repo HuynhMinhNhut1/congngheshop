@@ -4,7 +4,6 @@ require_once __DIR__ . "/autoload/autoload.php";
 // Truy vấn danh sách các danh mục sản phẩm được hiển thị trên trang chủ
 $sqlHomecate = "SELECT name, id FROM category WHERE home = 1 ORDER BY update_at";
 $categoryHome = $db->fetchsql($sqlHomecate);
-
 $data = [];
 
 // Lấy danh sách sản phẩm theo từng danh mục được hiển thị trên trang chủ
@@ -14,9 +13,7 @@ foreach ($categoryHome as $item) {
     $productHome = $db->fetchsql($sql);
     $data[$item['name']] = $productHome;
 }
-
 ?>
-
 <?php require_once __DIR__ . "/layouts/header.php"; ?>
 <?php require_once __DIR__ . "/layouts/banner.php"; ?>
 
@@ -37,7 +34,6 @@ foreach ($categoryHome as $item) {
             <script>
                 var slideIndex = 1;
                 showSlides();
-
                 function showSlides() {
                     var slides = document.getElementsByClassName("mySlides");
                     var dots = document.getElementsByClassName("dot");
@@ -58,7 +54,6 @@ foreach ($categoryHome as $item) {
             </script>
         </div>
     </section>
-
     <section class="box-main1">
         <?php foreach ($data as $key => $value) : ?>
             <div class="col-md-12">
@@ -100,5 +95,4 @@ foreach ($categoryHome as $item) {
         <?php endforeach; ?>
     </section>
 </div>
-
 <?php require_once __DIR__ . "/layouts/footer.php"; ?>
