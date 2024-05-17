@@ -13,15 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "price" => postInput("price"),                      // Giá sản phẩm
         "number" => postInput("number"),                    // Số lượng sản phẩm
         "sale" => postInput("sale"),                        // Giảm giá sản phẩm
+        "bonus" => postInput("bonus"),                      // Thông tin bổ sung
         "cpu" => postInput("cpu"),                          // Mô tả CPU
-        "short_content" => postInput("short_content"),      // Mô tả ngắn
         "content" => postInput("content"),                  // Mô tả chi tiết
     ];
     
     $error = [];  // Mảng chứa thông báo lỗi
 
     // Kiểm tra các trường thông tin sản phẩm bắt buộc
-    $required_fields = ['name', 'category_id', 'price', 'number', 'short_content', 'content', 'cpu'];
+    $required_fields = ['name', 'category_id', 'price', 'number', 'content', 'cpu'];
     foreach ($required_fields as $field) {
         if (empty($data[$field])) {
             $error[$field] = "Vui lòng nhập " . str_replace('_', ' ', $field) . " của sản phẩm";
@@ -42,14 +42,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($file_tmp, $part . $file_name);
     }
 
-    // Thêm sản phẩm vào cơ sở dữ liệu
-    $id_insert = $db->insert("product", $data);
-    if ($id_insert) {
-        $_SESSION['success'] = "Thêm sản phẩm thành công !";
-        redirectAdmin("product");
-    } else {
-        $_SESSION['error'] = "Thêm sản phẩm thất bại !";
-        redirectAdmin("product");
+    // Thêm sản phẩm vào cơ sở dữ liệu nếu không có lỗi
+    if (empty($error)) {
+        $id_insert = $db->insert("product", $data);
+        if ($id_insert) {
+            $_SESSION['success'] = "Thêm sản phẩm thành công !";
+            redirectAdmin("product");
+        } else {
+            $_SESSION['error'] = "Thêm sản phẩm thất bại !";
+            redirectAdmin("product");
+        }
     }
 }
 ?>
@@ -132,10 +134,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <?php endif ?>
                         </div>
                     </div>
+                    <!-- Thông tin bổ sung -->
                     <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label" style="text-align: right;"><b>Ưu Đãi</b></label>
+                        <label for="bonus" class="col-sm-2 col-form-label" style="text-align: right;"><b>Thông tin bổ sung</b></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="inputEmail3" placeholder="Ưu đãi sản phẩm ..." name="bonus">
+                            <input type="text" class="form-control" id="bonus" placeholder="Nhập thông tin bổ sung..." name="bonus">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -144,15 +147,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <textarea class="form-control" name="cpu" rows="10"></textarea>
                             <?php if (isset($error['cpu'])) : ?>
                                 <p class="text-danger"> <?php echo $error['cpu'] ?> </p>
-                            <?php endif ?>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label" style="text-align: right;"><b>Mô Tả Ngắn</b></label>
-                        <div class="col-sm-8">
-                            <textarea class="form-control" name="short_content" rows="4"></textarea>
-                            <?php if (isset($error['short_content'])) : ?>
-                                <p class="text-danger"> <?php echo $error['short_content'] ?> </p>
                             <?php endif ?>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
     $open = "transaction";
 
     // Tải tệp autoload.php từ đường dẫn tương đối
-    require_once __DIR__. "/../../autoload/autoload.php";
+    require_once __DIR__. "/../autoload/autoload.php";
 
     // Lấy ID từ đầu vào và chuyển đổi thành số nguyên bằng intval
     $id = intval(getInput('id'));
@@ -16,8 +16,6 @@
     // Thực hiện truy vấn SQL và lấy kết quả
     $Detailproduct = $db->fetchsql($sql);
 ?>
-
-<!-- Hiển thị kết quả trong bảng HTML -->
 <table class="table">
     <thead>
         <tr>
@@ -38,7 +36,7 @@
                 <!-- Cột STT -->
                 <td><?php echo $Number ?></td>
                 <!-- Cột Tên Sản phẩm với đường dẫn đến chi tiết sản phẩm -->
-                <td><a href="http://congngheshop.com/detail_product.php?id=<?php echo $item['product_id'] ?>"><?php echo $item['name'] ?></a></td>
+                <td><a href="http://congngheshop/detail_product.php?id=<?php echo $item['product_id'] ?>"><?php echo $item['name'] ?></a></td>
                 <!-- Cột Ảnh sản phẩm -->
                 <td>
                     <img src="<?php echo uploads()?>product/<?php echo $item['thumbar']?>" width="100px" height="70px">

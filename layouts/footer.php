@@ -1,10 +1,9 @@
 </div>
-                </div>
+           </div>
             </div>
         </div>
     </div>
 </div>
-
 <!-- Phần chân trang -->
 <section id="footer">
     <div class="container">
@@ -110,3 +109,4 @@
         })
     })
 </script>
+

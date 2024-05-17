@@ -1,27 +1,36 @@
 <?php
+    // Khai báo một biến $open để chỉ định tên của mục hiện tại, ở đây là "transaction".
     $open = "transaction";
     require_once __DIR__. "/../../autoload/autoload.php"; 
 
+    // Lấy giá trị ID từ đầu vào và chuyển đổi nó thành số nguyên.
     $id = intval(getInput('id'));
 
+    // Lấy thông tin của giao dịch có ID tương ứng từ cơ sở dữ liệu.
     $viewtransaction = $db->fetchID("transaction" ,$id);
+
+    // Kiểm tra xem giao dịch có tồn tại hay không.
     if(empty($viewtransaction))
     {
-        $_SESSION['error'] ="Data does not exist";
+        // Nếu không tồn tại, lưu thông báo lỗi vào session và chuyển hướng về trang quản lý giao dịch.
+        $_SESSION['error'] = "Data does not exist";
         redirectAdmin("transaction");
     }
-    
-    $num = $db->delete("transaction",$id);
-    if($num>0)
+
+    // Xóa giao dịch có ID tương ứng khỏi cơ sở dữ liệu.
+    $num = $db->delete("transaction", $id);
+
+    // Kiểm tra kết quả của việc xóa.
+    if($num > 0)
     {
-        $_SESSION['success']="Delete transaction successfully !";
+        // Nếu thành công, lưu thông báo thành công vào session và chuyển hướng về trang quản lý giao dịch.
+        $_SESSION['success'] = "Delete transaction successfully !";
         redirectAdmin("transaction");
     }
     else
     {
-        //not successfuly
-        $_SESSION['error']="Delete transaction NOT successfully !";
+        // Nếu không thành công, lưu thông báo lỗi vào session và chuyển hướng về trang quản lý giao dịch.
+        $_SESSION['error'] = "Delete transaction NOT successfully !";
         redirectAdmin("transaction");
     }
-    
 ?>

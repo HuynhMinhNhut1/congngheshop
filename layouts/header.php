@@ -101,6 +101,7 @@
                                         <li>
                                             <a href=""><i class="fa fa-user"></i>Tài Khoản <i class="fa fa-caret-down"></i></a>
                                             <ul id="header-submenu">
+                                            <li><a href="/congngheshop/personal/index.php?id=<?php echo $_SESSION['name_id'] ?>">Personal</a></li>
                                                 <li><a href="cart_product.php">Cart</a></li>
                                                 <li><a href="logout.php"><i class="fa fa-share-square-o"></i>Đăng xuất</a></li>
                                             </ul>
@@ -136,7 +137,7 @@
                     <div class="col-md-4">
                         <!-- Logo của trang web -->
                         <a href="index.php">
-                            <img src="<?php echo base_url() ?>public/frontend/images/LOGO.png" style="margin-top: -15px; width: 280px; height: 70px;">
+                            <img src="<?php echo base_url() ?>public/frontend/images/LOGO.jpg" style="margin-top: -15px; width: 280px; height: 70px;">
                         </a>
                     </div>
                     <div class="col-md-3" id="header-right">

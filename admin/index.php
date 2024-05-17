@@ -11,7 +11,7 @@
     $get_users = "select * from users";
     $run_users = mysqli_query($con,$get_users);
     $count_users = mysqli_num_rows($run_users);
-    
+    // Giao dịch
     $get_transaction = "select * from transaction";
     $run_transaction = mysqli_query($con,$get_transaction);
     $count_transaction = mysqli_num_rows($run_transaction);
@@ -19,10 +19,6 @@
     $run_totaltransaction = mysqli_query($con,$get_totaltransaction);
     $sum_totaltransaction = mysqli_fetch_assoc($run_totaltransaction)['SUM'];
 
-    // Lấy số lượng liên hệ từ bảng contacts
-    $get_contacts = "select * from contacts";
-    $run_contacts = mysqli_query($con,$get_contacts);
-    $count_contacts = mysqli_num_rows($run_contacts);
 ?>
 
 <?php

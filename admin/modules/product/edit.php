@@ -28,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "price" => postInput("price"),
         "number" => postInput("number"),
         "cpu" => postInput("cpu"),
-        "short_content" => postInput("short_content"),
         "content" => postInput("content"),
         "sale" => postInput("sale"),
         "bonus" => postInput("bonus"),
@@ -36,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $error = [];
 
     // Kiểm tra và xử lý các trường thông tin sản phẩm bắt buộc
-    $required_fields = ['name', 'category_id', 'price', 'number', 'short_content', 'content', 'cpu'];
+    $required_fields = ['name', 'category_id', 'price', 'number', 'content', 'cpu'];
     foreach ($required_fields as $field) {
         if (empty($data[$field])) {
             $error[$field] = "Vui lòng nhập " . str_replace('_', ' ', $field) . " của sản phẩm";
@@ -181,18 +180,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <?php endif; ?>
                         </div>
                     </div>
-
-                    <!-- Mô tả ngắn gọn -->
-                    <div class="form-group row">
-                        <label for="short_content" class="col-sm-2 col-form-label" style="text-align: right;"><b>Mô tả ngắn gọn</b></label>
-                        <div class="col-sm-8">
-                            <textarea class="form-control" name="short_content" rows="4"><?php echo $editProduct['short_content']; ?></textarea>
-                            <?php if (isset($error['short_content'])) : ?>
-                                <p class="text-danger"><?php echo $error['short_content']; ?></p>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-
                     <!-- Mô tả chi tiết -->
                     <div class="form-group row">
                         <label for="content" class="col-sm-2 col-form-label" style="text-align: right;"><b>Mô tả chi tiết</b></label>
@@ -216,7 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </main>
 
-<script src="/public/ckeditor/ckeditor.js"></script>
+<script src="/congngheshop/public/ckeditor/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('content');
     CKEDITOR.replace('cpu');
