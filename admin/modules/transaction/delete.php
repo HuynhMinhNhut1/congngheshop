@@ -13,7 +13,7 @@
     if(empty($viewtransaction))
     {
         // Nếu không tồn tại, lưu thông báo lỗi vào session và chuyển hướng về trang quản lý giao dịch.
-        $_SESSION['error'] = "Data does not exist";
+        $_SESSION['error'] = "Dữ liệu không tồn tại";
         redirectAdmin("transaction");
     }
 
@@ -24,13 +24,13 @@
     if($num > 0)
     {
         // Nếu thành công, lưu thông báo thành công vào session và chuyển hướng về trang quản lý giao dịch.
-        $_SESSION['success'] = "Delete transaction successfully !";
+        $_SESSION['success'] = "Xóa giao dịch thành công !";
         redirectAdmin("transaction");
     }
     else
     {
         // Nếu không thành công, lưu thông báo lỗi vào session và chuyển hướng về trang quản lý giao dịch.
-        $_SESSION['error'] = "Delete transaction NOT successfully !";
+        $_SESSION['error'] = "Xóa giao dịch không thành công !";
         redirectAdmin("transaction");
     }
 ?>

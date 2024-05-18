@@ -85,9 +85,9 @@ if (isset($product['page'])) {
                                     <td>
                                         <!-- Các nút chức năng: sửa và xóa sản phẩm -->
                                         <a class="btn btn-xs btn-info" href="edit.php?id=<?php echo $item['id'] ?>">
-                                            <i class="fa fa-edit"></i> update </a>
+                                            <i class="fa fa-edit"></i> Cập nhật </a>
                                         <a class="btn btn-xs btn-danger" href="delete.php?id=<?php echo $item['id'] ?>">
-                                            <i class="fa fa-times"></i> delete </a>
+                                            <i class="fa fa-times"></i> Xóa </a>
                                     </td>
                                 </tr>
                             <?php $Number++;

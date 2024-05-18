@@ -25,5 +25,5 @@ if (!isset($_SESSION['cart'][$id])) {
 }
 
 // Thông báo thành công và chuyển hướng đến trang giỏ hàng
-echo "<script>alert('Thêm sản phẩm thành công');location.href='cart_product.php'</script>";
+echo "<script>alert('Đã Thêm sản phẩm vào giỏ hàng');location.href='cart_product.php'</script>";
 ?>

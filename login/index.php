@@ -1,5 +1,4 @@
 <?php
-// Khởi động phiên làm việc
 session_start();
 
 // Đưa các file thư viện vào
@@ -39,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['admin_name'] = $is_check['name'];
             $_SESSION['admin_id'] = $is_check['id'];
             $_SESSION['success'] = "Đăng nhập thành công!"; // Lưu thông báo đăng nhập thành công vào session
-            echo "<script>alert('Login successfully!'); window.location.href='../admin/';</script>"; // Hiển thị thông báo và chuyển hướng
+            echo "<script>alert('Đăng nhập thành công!'); window.location.href='../admin/';</script>"; // Hiển thị thông báo và chuyển hướng
             exit(); // Kết thúc sau khi chuyển hướng
         } else {
             $error['login'] = "Email or mật khẩu không đúng";

@@ -9,5 +9,5 @@ unset($_SESSION['admin_id']);
 session_destroy();
 
 // Chuyển hướng người dùng đến trang đăng nhập
-header("Location: /congngheshop/login/"); // Đường dẫn này phải đúng với trang đăng nhập của bạn
-exit(); // Kết thúc kịch bản sau khi chuyển hướng
+header("Location: /congngheshop/login/");
+exit();

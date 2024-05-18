@@ -50,7 +50,7 @@
         redirectAdmin("transaction");
     } else {
         // Nếu cập nhật không thành công
-        $_SESSION['error'] = "Update transaction NOT successfully !";
+        $_SESSION['error'] = "Cập nhật không thành công !";
         redirectAdmin("transaction");
     }
 ?>
