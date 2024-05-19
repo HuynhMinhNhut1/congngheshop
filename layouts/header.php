@@ -101,8 +101,8 @@
                                         <li>
                                             <a href=""><i class="fa fa-user"></i>Tài Khoản <i class="fa fa-caret-down"></i></a>
                                             <ul id="header-submenu">
-                                            <li><a href="/congngheshop/personal/index.php?id=<?php echo $_SESSION['name_id'] ?>">Personal</a></li>
-                                                <li><a href="cart_product.php">Cart</a></li>
+                                            <li><a href="/congngheshop/personal/index.php?id=<?php echo $_SESSION['name_id'] ?>">Cá nhân</a></li>
+                                                <li><a href="cart_product.php">Giỏ hàng</a></li>
                                                 <li><a href="logout.php"><i class="fa fa-share-square-o"></i>Đăng xuất</a></li>
                                             </ul>
                                         </li>
@@ -128,7 +128,7 @@
                         <!-- Form tìm kiếm sản phẩm -->
                         <form class="form-inline" action="" method="POST">
                             <div class="form-group">
-                                <input type="text" name="keyword" id="header-search" placeholder="Search name product ... " class="form-control" style="width: 300px; ">
+                                <input type="text" name="keyword" id="header-search" placeholder="Tìm tên sản phẩm ... " class="form-control" style="width: 300px; ">
                             </div>
                         </form>
                         <!-- Hộp gợi ý khi tìm kiếm -->

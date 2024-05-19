@@ -50,7 +50,7 @@ if (isset($product['page'])) {
                         <?php
                         // Hiển thị thông báo sản phẩm hết hàng nếu số lượng < 1
                         if ($item['number'] < 1) {
-                            echo '<span style="position: absolute; background: #fbda00;color: #333;font-size: 12px;padding: 2px 6px;margin-left: 63px;">product not available</span>';
+                            echo '<span style="position: absolute; background: #fbda00;color: #333;font-size: 12px;padding: 2px 6px;margin-left: 63px;">sản phẩm không có sẵn</span>';
                         }
                         // Hiển thị thông báo giảm giá nếu có
                         if ($item['sale'] > 0) {

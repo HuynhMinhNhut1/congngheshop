@@ -23,12 +23,12 @@ $usersss = mysqli_query($con, $sql);
 
 <body>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Welcome <?php echo $_SESSION['name_user'] ?></a>
+        <a class="navbar-brand" href="index.html">Xin chào  <?php echo $_SESSION['name_user'] ?></a>
         <!-- Navbar Search-->
 
         <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div class="input-group">
-                <a href="/../congngheshop/index.php" style="font-size: 12px;font-weight: bold;color:aliceblue;">EXITS</a>
+                <a href="/../congngheshop/index.php" style="font-size: 12px;font-weight: bold;color:aliceblue;">Thoát</a>
             </div>
         </div>
     </nav>
@@ -37,7 +37,7 @@ $usersss = mysqli_query($con, $sql);
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <div class="sb-sidenav-menu-heading"></div>
                         <a class="nav-link" href="/congngheshop/personal/update.php?id=<?php echo $_SESSION['name_id'] ?>">
                             <div class="sb-nav-link-icon"><i class="far fa-address-card"></i></i></div>
                             Thông Tin
