@@ -1,4 +1,5 @@
 <?php 
+    // Định nghĩa lớp Database
     class Database
     {
         /**
@@ -6,23 +7,25 @@
          * @var [type]
          */
         public $link;
-        
+        // Hàm khởi tạo
         public function __construct()
         {
+            // Kết nối đến cơ sở dữ liệu
             $this->link = mysqli_connect("localhost","root","","shopcongnghe") or die ();
+            // Thiết lập mã hóa ký tự là utf8
             mysqli_set_charset($this->link,"utf8");
         }
         /**
-         * [insert description] hàm insert 
-         * @param  $table
-         * @param  array  $data  
-         * @return integer
+         * Hàm thêm mới bản ghi vào cơ sở dữ liệu
+         * @param  $table - tên bảng
+         * @param  array  $data  - dữ liệu cần thêm
+         * @return integer - trả về ID của bản ghi vừa thêm
          */
-
         public function insert($table, array $data)
         {
-            //code
+            // Khởi tạo câu lệnh SQL
             $sql = "INSERT INTO {$table} ";
+            // Tách các khóa và giá trị của mảng dữ liệu
             $columns = implode(',', array_keys($data));
             $values  = "";
             $sql .= '(' . $columns . ')';
@@ -33,19 +36,26 @@
                     $values .= mysqli_real_escape_string($this->link,$value) . ',';
                 }
             }
+            // Loại bỏ dấu phẩy cuối cùng
             $values = substr($values, 0, -1);
             $sql .= " VALUES (" . $values . ')';
-            // _debug($sql);die;
-            mysqli_query($this->link, $sql) or die("Lỗi  query  insert ----" .mysqli_error($this->link));
+            // Thực thi câu lệnh SQL
+            mysqli_query($this->link, $sql) or die("Lỗi query insert ----" .mysqli_error($this->link));
+            // Trả về ID của bản ghi vừa thêm
             return mysqli_insert_id($this->link);
         }
 
+        /**
+         * Hàm cập nhật bản ghi
+         * @param  $table - tên bảng
+         * @param  array  $data - dữ liệu cần cập nhật
+         * @param  array  $conditions - điều kiện cập nhật
+         * @return integer - số lượng bản ghi bị ảnh hưởng
+         */
         public function update($table, array $data, array $conditions)
         {
             $sql = "UPDATE {$table}";
-
             $set = " SET ";
-
             $where = " WHERE ";
 
             foreach($data as $field => $value) {
@@ -69,19 +79,20 @@
             $where = substr($where, 0, -5);
 
             $sql .= $set . $where;
-            // _debug($sql);die;
-
-            mysqli_query($this->link, $sql) or die( "Lỗi truy vấn Update -- " .mysqli_error());
+            // Thực thi câu lệnh SQL
+            mysqli_query($this->link, $sql) or die("Lỗi truy vấn Update -- " .mysqli_error());
 
             return mysqli_affected_rows($this->link);
         }
+
+        // Hàm cập nhật bản ghi với câu lệnh SQL cụ thể
         public function updateview($sql)
         {
-            $result = mysqli_query($this->link,$sql)  or die ("Lỗi update view " .mysqli_error($this->link));
+            $result = mysqli_query($this->link, $sql)  or die ("Lỗi update view " .mysqli_error($this->link));
             return mysqli_affected_rows($this->link);
-
         }
         
+        // Hàm đếm số lượng bản ghi trong bảng
         public function countTable($table)
         {
             $sql = "SELECT id FROM  {$table}";
@@ -91,39 +102,36 @@
         }
 
         /**
-         * [delete description] hàm delete
-         * @param  $table      [description]
-         * @param  array  $conditions [description]
-         * @return integer             [description]
+         * Hàm xóa bản ghi
+         * @param  $table - tên bảng
+         * @param  $id - id của bản ghi cần xóa
+         * @return integer - số lượng bản ghi bị xóa
          */
-        public function delete ($table ,  $id )
+        public function delete($table ,  $id)
         {
             $sql = "DELETE FROM {$table} WHERE id = $id ";
-
-            mysqli_query($this->link,$sql) or die (" Lỗi Truy Vấn delete   --- " .mysqli_error($this->link));
+            mysqli_query($this->link, $sql) or die (" Lỗi Truy Vấn delete --- " .mysqli_error($this->link));
             return mysqli_affected_rows($this->link);
         }
 
-        /**
-         * delete array 
-         */
-        
-        public function deletewhere($table,$data = array())
+        // Hàm xóa nhiều bản ghi theo mảng id
+        public function deletewhere($table, $data = array())
         {
             foreach ($data as $id)
             {
                 $id = intval($id);
                 $sql = "DELETE FROM {$table} WHERE id = $id ";
-                mysqli_query($this->link,$sql) or die (" Lỗi Truy Vấn delete   --- " .mysqli_error($this->link));
+                mysqli_query($this->link, $sql) or die (" Lỗi Truy Vấn delete --- " .mysqli_error($this->link));
             }
             return true;
         }
 
-        public function fetchsql( $sql )
+        // Hàm thực thi câu lệnh SQL và trả về dữ liệu
+        public function fetchsql($sql)
         {
-            $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn sql " .mysqli_error($this->link));
+            $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn sql " .mysqli_error($this->link));
             $data = [];
-            if( $result)
+            if($result)
             {
                 while ($num = mysqli_fetch_assoc($result))
                 {
@@ -133,36 +141,40 @@
             return $data;
         } 
         
-        public function fetchID($table , $id )
+        // Hàm lấy bản ghi theo id
+        public function fetchID($table, $id)
         {
             $sql = "SELECT * FROM {$table} WHERE id = $id ";
-            $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
+            $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchID " .mysqli_error($this->link));
             return mysqli_fetch_assoc($result);
         }
 
-        public function fetchOne($table , $query)
+        // Hàm lấy một bản ghi với điều kiện truy vấn
+        public function fetchOne($table, $query)
         {
-            $sql  = "SELECT * FROM {$table} WHERE ";
+            $sql = "SELECT * FROM {$table} WHERE ";
             $sql .= $query;
-            $sql .= "LIMIT 1";
-            $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchOne " .mysqli_error($this->link));
+            $sql .= " LIMIT 1";
+            $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchOne " .mysqli_error($this->link));
             return mysqli_fetch_assoc($result);
         }
 
-        public function deletesql ($table ,  $sql )
+        // Hàm xóa bản ghi với câu lệnh SQL cụ thể
+        public function deletesql($table, $sql)
         {
             $sql = "DELETE FROM {$table} WHERE " .$sql;
-            // _debug($sql);die;
-            mysqli_query($this->link,$sql) or die (" Lỗi Truy Vấn delete   --- " .mysqli_error($this->link));
+            // Thực thi câu lệnh SQL
+            mysqli_query($this->link, $sql) or die (" Lỗi Truy Vấn delete --- " .mysqli_error($this->link));
             return mysqli_affected_rows($this->link);
         }
 
-         public function fetchAll($table)
+        // Hàm lấy tất cả bản ghi trong bảng
+        public function fetchAll($table)
         {
-            $sql = "SELECT * FROM {$table} WHERE 1" ;
-            $result = mysqli_query($this->link,$sql) or die("Lỗi Truy Vấn fetchAll " .mysqli_error($this->link));
+            $sql = "SELECT * FROM {$table} WHERE 1";
+            $result = mysqli_query($this->link, $sql) or die("Lỗi Truy Vấn fetchAll " .mysqli_error($this->link));
             $data = [];
-            if( $result)
+            if($result)
             {
                 while ($num = mysqli_fetch_assoc($result))
                 {
@@ -171,12 +183,14 @@
             }
             return $data;
         }
+
+        // Hàm lấy các bản ghi trong bảng với điều kiện Home = 1
         public function fetchcate($table)
         {
-            $sql = "SELECT * FROM {$table} WHERE Home = 1  " ;
-            $result = mysqli_query($this->link,$sql) or die("Lỗi Truy Vấn fetchcate " .mysqli_error($this->link));
+            $sql = "SELECT * FROM {$table} WHERE Home = 1";
+            $result = mysqli_query($this->link, $sql) or die("Lỗi Truy Vấn fetchcate " .mysqli_error($this->link));
             $data = [];
-            if( $result)
+            if($result)
             {
                 while ($num = mysqli_fetch_assoc($result))
                 {
@@ -186,76 +200,75 @@
             return $data;
         }
 
-        public  function fetchJones($table,$sql,$page =0,$row ,$pagi = false )
+        // Hàm lấy các bản ghi với phân trang
+        public function fetchJones($table, $sql, $page = 0, $row, $pagi = false)
         {
-            
             $data = [];
 
-            if ($pagi == true )
-            {
-                $total =$this->countTable($table);
-                $sotrang = ceil($total / $row);
-                $start = ($page - 1 ) * $row ;
-                $sql .= " LIMIT $start,$row ";
-                $data = [ "page" => $sotrang];
-                $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
-            }
-            else
-            {
-                $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
-            }
-            
-            if( $result)
-            {
-                while ($num = mysqli_fetch_assoc($result))
-                {
-                    $data[] = $num;
-                }
-            }
-            
-            return $data;
-        }
-         public  function fetchJone($table,$sql ,$page = 0,$row ,$pagi = false )
-        {
-            
-            $data = [];
-            // _debug($sql);die;
-            if ($pagi == true )
+            if ($pagi == true)
             {
                 $total = $this->countTable($table);
                 $sotrang = ceil($total / $row);
-                $start = ($page - 1 ) * $row ;
-                $sql .= " LIMIT $start,$row";
-                $data = [ "page" => $sotrang];
-                $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
+                $start = ($page - 1) * $row;
+                $sql .= " LIMIT $start, $row";
+                $data = ["page" => $sotrang];
+                $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
             }
             else
             {
-                $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
+                $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
+            }
+
+            if($result)
+            {
+                while ($num = mysqli_fetch_assoc($result))
+                {
+                    $data[] = $num;
+                }
+            }
+
+            return $data;
+        }
+
+                // Hàm lấy các bản ghi với phân trang (phiên bản khác)
+        public function fetchJone($table, $sql, $page = 0, $row, $pagi = false)
+        {
+            $data = [];
+            if ($pagi == true)
+            {
+                $total = $this->countTable($table);
+                $sotrang = ceil($total / $row);
+                $start = ($page - 1) * $row;
+                $sql .= " LIMIT $start,$row";
+                $data = ["page" => $sotrang];
+                $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
+            }
+            else
+            {
+                $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
             }
             
-            if( $result)
+            if ($result)
             {
                 while ($num = mysqli_fetch_assoc($result))
                 {
                     $data[] = $num;
                 }
             }
-            // _debug($data);
             return $data;
         }
 
-
-        public  function fetchJoneDetail($table , $sql ,$page = 0,$total ,$pagi )
+        // Hàm lấy các bản ghi chi tiết với phân trang
+        public function fetchJoneDetail($table, $sql, $page = 0, $total, $pagi)
         {
-            $result = mysqli_query($this->link,$sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
+            $result = mysqli_query($this->link, $sql) or die("Lỗi truy vấn fetchJone ---- " .mysqli_error($this->link));
             $sotrang = ceil($total / $pagi);
-            $start = ($page - 1 ) * $pagi ;
-            $sql .= " LIMIT $start,$pagi";
-            $result = mysqli_query($this->link , $sql);
+            $start = ($page - 1) * $pagi;
+            $sql .= " LIMIT $start, $pagi";
+            $result = mysqli_query($this->link, $sql);
             $data = [];
-            $data = [ "page" => $sotrang];
-            if( $result)
+            $data = ["page" => $sotrang];
+            if ($result)
             {
                 while ($num = mysqli_fetch_assoc($result))
                 {
@@ -265,12 +278,12 @@
             return $data;
         }
 
+        // Hàm tính tổng
         public function total($sql)
         {
-            $result = mysqli_query($this->link  , $sql);
+            $result = mysqli_query($this->link, $sql);
             $tien = mysqli_fetch_assoc($result);
             return $tien;
         }
     }
-   
 ?>
