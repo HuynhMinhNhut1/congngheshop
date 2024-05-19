@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__. "/autoload/autoload.php"; 
 
-// Kiểm tra nếu người dùng chưa đăng nhập, thông báo và chuyển hướng về trang chủ
-if (!isset($_SESSION['name_id'])) {
-    echo "<script>alert('Bạn cần đăng nhập trước khi chọn sản phẩm!');location.href='login.php'</script>";
-}
+// // Kiểm tra nếu người dùng chưa đăng nhập, thông báo và chuyển hướng về trang chủ
+// if (!isset($_SESSION['name_id'])) {
+//     echo "<script>alert('Bạn cần đăng nhập trước khi chọn sản phẩm!');location.href='login.php'</script>";
+// }
 
 // Lấy ID sản phẩm từ request và chuyển đổi sang kiểu số nguyên
 $id = intval(getInput('id'));
@@ -25,5 +25,5 @@ if (!isset($_SESSION['cart'][$id])) {
 }
 
 // Thông báo thành công và chuyển hướng đến trang giỏ hàng
-echo "<script>alert('Thêm sản phẩm thành công');location.href='cart_product.php'</script>";
+echo "<script>alert('Đã Thêm sản phẩm vào giỏ hàng');location.href='cart_product.php'</script>";
 ?>

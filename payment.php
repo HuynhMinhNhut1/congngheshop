@@ -2,10 +2,13 @@
 // Tải file autoload.php để sử dụng các class trong ứng dụng
 require_once __DIR__ . "/autoload/autoload.php";
 
-// Kiểm tra nếu người dùng chưa đăng nhập thì chuyển hướng đến trang đăng nhập
+ // Kiểm tra nếu người dùng chưa đăng nhập, thông báo và chuyển hướng
 if (!isset($_SESSION['name_id'])) {
-    header("location:/congngheshop/login.php");
+    echo "<script>alert('Bạn cần đăng nhập trước khi chọn sản phẩm!');</script>";
+    echo "<script>window.location='/congngheshop/login.php';</script>";
+    exit; // Kết thúc script sau khi chuyển hướng
 }
+
 
 // Lấy thông tin người dùng từ CSDL dựa trên ID người dùng trong session
 $users = $db->fetchID("users", intval($_SESSION['name_id']));

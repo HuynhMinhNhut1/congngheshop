@@ -7,7 +7,7 @@ $sum = 0;
 
 // Kiểm tra nếu giỏ hàng không tồn tại hoặc không có sản phẩm nào trong giỏ hàng, hiển thị thông báo và chuyển hướng về trang chủ
 if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
-    echo "<script>alert('There are no items in your shopping cart !');location.href='index.php'</script>";
+    echo "<script>alert('Không có sản phẩm nào trong giỏ hàng của bạn !');location.href='index.php'</script>";
 }
 ?>
 
@@ -61,7 +61,7 @@ if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
                             <img src="<?php echo uploads() ?>product/<?php echo $value['thumbar'] ?>" width="80px" height="60px">
                         </td>
                         <td style="text-align: center;">
-                            <input type="number" class="qty" value="<?php echo $value['qty'] ?>" min="0" max="10" step="1" name="qty" />
+                            <input type="number" class="qty" value="<?php echo $value['qty'] ?>" min="1" max="10" step="1" name="qty" />
                         </td>
                         <td><?php echo formatPrice($value['price']) ?></td>
                         <td><?php echo formatPrice($value['qty'] * $value['price']) ?></td>

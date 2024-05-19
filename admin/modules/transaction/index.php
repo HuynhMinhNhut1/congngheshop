@@ -25,10 +25,10 @@
 <?php require_once __DIR__. "/../../layouts/header.php"; ?>
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">Danh sách giao dịch</h1>
+        <h1 class="mt-4">Dữ liệu giao dịch</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="<?php echo base_url_admin(); ?>">Trang chính</a></li>
-            <li class="breadcrumb-item active">Danh sách giao dịch</li>
+            <li class="breadcrumb-item active">Dữ liệu giao dịch</li>
         </ol>
         <div class="cleanfix"></div>
 
@@ -38,7 +38,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table mr-1"></i>
-                DataTable giao dịch
+                Dữ liệu giao dịch
             </div>
             <div class="card-body">
                 <div class="table-responsive">

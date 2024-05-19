@@ -1,4 +1,4 @@
-<!-- Hiển thị thông báo khi thêm danh mục mới thành công -->
+<!-- Hiển thị thông báo mới thành công -->
 <?php if (isset($_SESSION['success'])) : ?>
     <div class="alert alert-success">
         <?php echo $_SESSION['success'];
@@ -6,7 +6,7 @@
     </div>
 <?php endif; ?>
 
-<!-- Hiển thị thông báo khi sửa danh mục thành công -->
+<!-- Hiển thị thông báo mới thành công -->
 <?php if (isset($_SESSION['error'])) : ?>
     <div class="alert alert-danger">
         <?php echo $_SESSION['error'];
